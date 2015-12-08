@@ -23,9 +23,8 @@ import org.jsoup.select.Elements;
 public class ODPParaser {
 
 	public static void main(String[] args) throws IOException {
-		Document doc = Jsoup.connect("http://en.wikipedia.org/").get();
-		//Elements newsHeadlines = doc.select("#mp-itn b a");
-		Elements newsHeadlines = doc
+		Document doc = Jsoup.connect("https://www.dmoz.org/search?q=http://finance.sina.com.cn").get();
+		Elements newsHeadlines = doc.select("#bd-cross ol li a strong");
 		System.out.println(newsHeadlines.toString());
 		
 		
