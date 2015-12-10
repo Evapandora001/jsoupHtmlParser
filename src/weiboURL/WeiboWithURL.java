@@ -25,11 +25,13 @@ public class WeiboWithURL {
 
 	public void getURL(String urlPath){
 		String out="";
-		String outPath="/FC1/weiboWithURL/";
+	//	String outPath="//FC1//weiboWithURL//";
+		String outPath="out//";
 		int count=0;
 		File[] files=new File(urlPath).listFiles();
 		for(File file:files){
-			if(file.getName().endsWith(".date")==false) continue;
+			if(file.getName().endsWith(".dat")==false) continue;
+			System.out.println(file.getName());
 			try {
 			     FileInputStream fis = new FileInputStream(file);
 			     InputStreamReader isr = new InputStreamReader(fis,"utf-8");
@@ -40,7 +42,7 @@ public class WeiboWithURL {
 			    	 out+=line+"\r\n";
 			    	 count++;
 			    	 if(count==10000){
-			    		 writeAppend(out,outPath);
+			    		 writeAppend(out,outPath+file.getName());
 			    		 count=0;
 			    		 out="";
 			    	 }
@@ -55,7 +57,8 @@ public class WeiboWithURL {
 
 	public static void main(String[] args) {
 		WeiboWithURL a=new WeiboWithURL();
-		a.getURL("/FC1/weibo");
+	//	a.getURL("//FC1//weibo");
+		a.getURL("C://Users//lenovo//Desktop//ApacheSpark");
 
 	}
 	
